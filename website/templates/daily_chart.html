@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Expenses Chart</title>
+  <!--Load the Google Charts API-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable({{ chart_data | safe }});
+      var options = {
+        title: 'Daily Expenses',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center">Daily Expenses Chart</h2>
+        <hr>
+        <div id="daily_chart_div" style="width: 100%; height: 500px;"></div>
+      </div>
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+  
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable({{ chart_data | safe }});
+  
+      var options = {
+        title: 'Daily Expenses',
+        legend: { position: 'none' },
+        vAxis: { title: 'Amount' },
+        hAxis: { title: 'Date' },
+        backgroundColor: '#f5f5f5',
+        colors: ['#4285f4']
+      };
+  
+      var chart = new google.visualization.ColumnChart(document.getElementById('daily_chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+</body>
+</html>
