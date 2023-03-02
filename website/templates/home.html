@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% block title %}Home{% endblock %} 
+{% block style %} 
+<style>
+  .custom{
+    width: 50%;
+  }
+  .form-box label{
+    font-size:16px;
+    font-weight: bold;
+  }
+  .btn-custom{
+    text-align: center;
+  }
+  .form-custom{
+    margin-left: 30%;
+    margin-top: 60px;
+  }
+  .heading{
+    text-align: center;
+    margin-top: 30px;
+  }
+</style>
+
+{% endblock %}
+{% block content %}
+<div class="heading">
+<h3> Add an EXPENSE</h3>
+<hr>
+</div>
+<div class="form-box form-custom">
+<form method="POST" action="{{url_for('views.home')}}">
+  <div class="form-group">
+    <label for="date">Date:</label>
+    <input type="date" class="form-control custom" id="date" name="date" required>
+  </div>
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <select id="category" class="form-control custom" name="category" required>
+        <option value="">Select a category</option>
+        <option value="groceries">Groceries</option>
+        <option value="utilities">Utilities</option>
+        <option value="rent">Rent</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="other">Other</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" class="form-control custom" name="amount" min="0" step="1" required>
+  </div>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea id="description" class="form-control custom" name="description" rows="3" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="payment_method">Payment method:</label>
+    <select id="payment_method" class="form-control custom" name="payment_method" required>
+        <option value="">Select a payment method</option>
+        <option value="cash">Cash</option>
+        <option value="credit_card">Credit card</option>
+        <option value="debit_card">Debit card</option>
+        <option value="other">Other</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary btn-custom">Add Expense</button>
+</form>
+</div>
+
+
+{% endblock %}

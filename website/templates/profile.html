@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block style %}
+<style>
+  .title{
+    font-weight: bold;
+    font-size: 26px;
+  }
+  .body{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 18px;
+  }
+  .box{
+    margin-top: 50px;
+  }
+  .label{
+    font-size: 18px;
+  }
+</style>
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center box">
+      <div class="col-lg-6">
+        <div class="card my-5">
+          <div class="card-body body">
+            <h5 class="card-title title">User Profile</h5>
+            <hr> 
+            <div class="row mb-4">
+              <div class="col-sm-4">
+                <h6 class="mb-0 label">First Name</h6>
+              </div>
+              <div class="col-sm-8 text-secondary">
+                {{user.first_name}} 
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-sm-4">
+                <h6 class="mb-0 label">Last Name</h6>
+              </div>
+              <div class="col-sm-8 text-secondary">
+              {{user.last_name}}
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-sm-4">
+                <h6 class="mb-0 label">Email</h6>
+              </div>
+              <div class="col-sm-8 text-secondary">
+                {{user.email}}
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-sm-4">
+                <h6 class="mb-0 label">Phone</h6>
+              </div>
+              <div class="col-sm-8 text-secondary">
+                {{user.mobile_number}}
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+
